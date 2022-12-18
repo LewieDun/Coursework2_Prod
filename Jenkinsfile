@@ -36,7 +36,8 @@ node {
         pulls the image and rolls out an update */
         sshagent(['my-ssh-key']) {
             sh 'docker pull lewiedun/node-web-app:latest'
-            sh 'ssh ubuntu@ip-172-31-81-121 kubectl set image deployments/server-js node-web-app=lewiesimage:latest'  // <---- errors here
+            sh 'ssh ubuntu@ip-172-31-81-121'
+            sh 'kubectl set image deployments/server-js node-web-app=lewiesimage:latest'
         }
     }
 }
