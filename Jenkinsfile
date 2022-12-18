@@ -35,7 +35,7 @@ node {
         /* This connects to the production server,
         pulls the image and rolls out an update */
         sshagent(['my-ssh-key']) {
-            sh 'ssh ubuntu@ip-172-31-81-121 kubectl set image deployments/server-js node-web-app=lewiesimage:latest'
+            sh 'ssh ubuntu@ip-44.204.162.217 kubectl set image deployments/server-js node-web-app=lewiesimage:latest'
         }
     }
 }
