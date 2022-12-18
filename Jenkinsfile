@@ -33,4 +33,12 @@ node {
             app.push("latest")
         }
     }
+    
+    
+    stage('Connect to production and pull image, and update') {
+
+        sshagent(['my-ssh-key']) {
+            sh 'docker pull lewiedun/node-web-app:latest'
+        }
+    }
 }
