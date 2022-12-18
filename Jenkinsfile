@@ -34,13 +34,9 @@ node {
     stage('Connect to production envir,  pull image, and launch update') {
         /* This connects to the production server,
         pulls the image and rolls out an update */
-        steps {
-            sshagent(['my-ssh-key']) {      
-                sh 'docker pull lewiedun/node-web-app:latest'
-                sh 'kubectl set image deployments/server-js node-web-app=lewiedun/node-web-app:latest'
+        sshagent(['my-ssh-key']) {
+            sh 'docker pull ----/node-web-app:latest'
+            sh 'kubectl set image deployments/server-js node-web-app=Lewies/cw2:latest'  // <---- errors here
         }
-        }
-        
-
     }
 }
