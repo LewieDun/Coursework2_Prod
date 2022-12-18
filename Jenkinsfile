@@ -39,7 +39,6 @@ node {
 
         sshagent(['my-ssh-key']) {
             sh 'docker pull lewiedun/node-web-app:latest'
-            sh 'kubectl set image deployment.v1.apps/node-web-app node-web-app=node-web-app:latest'
         }
     }
 }
