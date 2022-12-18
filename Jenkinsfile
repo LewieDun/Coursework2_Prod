@@ -39,6 +39,7 @@ node {
 
         sshagent(['my-ssh-key']) {
             sh 'docker pull lewiedun/node-web-app:latest'
+            sh 'kubectl set image deployments/server-js server-js=jocatalin/server-js:v2'
         }
     }
 }
