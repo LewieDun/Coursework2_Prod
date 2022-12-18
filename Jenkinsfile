@@ -35,14 +35,11 @@ node {
         /* This connects to the production server,
         pulls the image and rolls out an update */
         sshagent(['my-ssh-key']) {
-            
-            stage('List pods') {
-                withKubeConfig([credentialsId: 'kubernetes-config']) {
-                    sh 'curl -LO "https://storage.googleapis.com/kubernetes-release/release/v1.20.5/bin/linux/amd64/kubectl"'  
-                    sh 'chmod u+x ./kubectl'  
-                    sh './kubectl get pods'
-                }
-               }         
+            withKubeConfig([credentialsId: 'kubernetes-config']) {
+                sh 'curl -LO "https://storage.googleapis.com/kubernetes-release/release/v1.20.5/bin/linux/amd64/kubectl"'  
+                sh 'chmod u+x ./kubectl'  
+                sh './kubectl get pods'
+                }                     
             sh 'docker pull lewiedun/node-web-app:latest'
             sh 'kubectl set image deployments/server-js node-web-app=lewiedun/node-web-app:latest'
         }
