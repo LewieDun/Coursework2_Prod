@@ -36,7 +36,7 @@ node {
         pulls the image and rolls out an update */
         sshagent(['my-ssh-key']) {
             sh 'docker pull lewiedun/node-web-app:latest'
-            sh 'kubectl set image deployments/server-js node-web-app=Lewies/cw2:latest'
+            sh 'kubectl set image deployments/server-js node-web-app=lewiedun/node-web-app:latest'
         }
     }
 }
