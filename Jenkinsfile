@@ -35,9 +35,6 @@ node {
         /* This connects to the production server,
         pulls the image and rolls out an update */
         sshagent(['my-ssh-key']) {
-            withKubeConfig([credentialsId: 'user1', serverUrl: 'https://api.k8s.my-company.com']) {
-                sh 'kubectl apply -f my-kubernetes-directory'
-            }
             sh 'docker pull lewiedun/node-web-app:latest'
             sh 'kubectl set image deployments/server-js node-web-app=Lewies/cw2:latest'
         }
